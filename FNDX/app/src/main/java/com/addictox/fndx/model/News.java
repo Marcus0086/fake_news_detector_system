@@ -5,7 +5,7 @@ public class News {
     public String Article;
 
     public News(String Heading, String Article){
-        Heading = Heading;
-        Article = Article;
+        this.Heading = Heading;
+        this.Article = Article;
     }
 }
