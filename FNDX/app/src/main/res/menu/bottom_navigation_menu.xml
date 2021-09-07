@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/action_check"
-        android:title="@string/check_news"
-        android:icon="@drawable/ic_action_check" />
-    <item android:id="@+id/action_home"
-        android:title="@string/home"
-        android:icon="@drawable/ic_action_home" />
-    <item android:id="@+id/action_settings"
-        android:title="@string/settings"
-        android:icon="@drawable/ic_setting" />
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/action_check"
+            android:title="@string/check_news"
+            android:icon="@drawable/ic_action_check" />
+        <item android:id="@+id/action_home"
+            android:title="@string/home"
+            android:icon="@drawable/ic_action_home" />
+        <item android:id="@+id/action_profile"
+            android:title="@string/profile"
+            android:icon="@drawable/ic_action_profile" />
+    </group>
 </menu>

@@ -37,12 +37,13 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="65dp"
         android:layout_gravity="end"
         android:layout_alignParentBottom="true"
         android:background="@color/primary_500"
-        app:itemIconTint="@color/white"
-        app:itemTextColor="@color/white"
+        app:itemIconTint="@drawable/bnv_tab_item_foreground"
+        app:itemTextColor="@drawable/bnv_tab_item_foreground"
+        app:itemIconSize="30dp"
         app:menu="@menu/bottom_navigation_menu" />
 
 </RelativeLayout>
