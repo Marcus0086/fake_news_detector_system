@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.addictox.fndx.R;
@@ -47,11 +46,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     private void displayHome() {
         HomeFragment homeFragment = new HomeFragment();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frame, homeFragment);
-        fragmentTransaction.commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame, homeFragment).commit();
         Objects.requireNonNull(getSupportActionBar()).setTitle("News");
         navigationView.setSelectedItemId(R.id.action_home);
+        navigationView.setOnNavigationItemSelectedListener(this);
     }
 
 
@@ -70,22 +68,19 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         switch (item.getItemId()){
             case R.id.action_home:{
                 HomeFragment homeFragment = new HomeFragment();
-                fragmentTransaction.replace(R.id.frame, homeFragment);
-                fragmentTransaction.commit();
+                fragmentTransaction.replace(R.id.frame, homeFragment).commit();
                 Objects.requireNonNull(getSupportActionBar()).setTitle("News");
                 break;
             }
             case R.id.action_check:{
                 CheckNewsFragment checkNewsFragment = new CheckNewsFragment();
-                fragmentTransaction.replace(R.id.frame, checkNewsFragment);
-                fragmentTransaction.commit();
+                fragmentTransaction.replace(R.id.frame, checkNewsFragment).commit();
                 Objects.requireNonNull(getSupportActionBar()).setTitle("Fake News Detector");
                 break;
             }
             case R.id.action_profile:{
                 ProfileFragment profileFragment = new ProfileFragment();
-                fragmentTransaction.replace(R.id.frame, profileFragment);
-                fragmentTransaction.commit();
+                fragmentTransaction.replace(R.id.frame, profileFragment).commit();
                 Objects.requireNonNull(getSupportActionBar()).setTitle("AddictoX");
                 break;
             }

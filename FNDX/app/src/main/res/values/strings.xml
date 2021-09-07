@@ -8,4 +8,6 @@
     <string name="check_news">Check News</string>
     <string name="home">Home</string>
     <string name="profile">Profile</string>
+    <string name="heading">Heading</string>
+    <string name="article">Article</string>
 </resources>

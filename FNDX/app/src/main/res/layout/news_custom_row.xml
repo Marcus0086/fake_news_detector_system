@@ -7,17 +7,39 @@
     android:layout_margin="5dp"
     app:cardCornerRadius="6dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="150dp"
+        android:background="@color/secondary_200">
+
+        <TextView
+            android:id="@+id/txtHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/heading"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtArticle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtHeading"
+            android:text="@string/article"
+            android:paddingHorizontal="10dp"
+            android:textSize="16sp"/>
 
         <ImageView
             android:id="@+id/imgRestaurantThumbnail"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
+            android:layout_alignParentEnd="true"
             android:layout_margin="8dp"
-            android:scaleType="centerCrop" />
-    </LinearLayout>
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_action_profile" />
+
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>
