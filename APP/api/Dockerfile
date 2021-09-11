@@ -1,7 +1,8 @@
-FROM fakenewsdetect:python
+FROM python:slim
+COPY ./server/ /app/server
+COPY ./requirements.txt /app
+WORKDIR /app
 RUN pip install -r requirements.txt
-COPY ./server /server
-COPY ./server/models /server/models/
-COPY ./server/Routes /server/Routes/
+
 EXPOSE 8000
 CMD ["python", "main.py"]
