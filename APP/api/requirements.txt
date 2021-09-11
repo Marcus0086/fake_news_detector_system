@@ -1,0 +1,16 @@
+asyncio==3.4.3
+dill==0.3.4
+fastapi==0.68.1
+h5py==3.1.0
+joblib==1.0.1
+keras==2.6.0
+Keras-Preprocessing==1.1.2
+numpy==1.19.5
+pydantic==1.8.2
+starlette==0.14.2
+tensorboard==2.6.0
+tensorboard-data-server==0.6.1
+tensorboard-plugin-wit==1.8.0
+tensorflow==2.6.0
+tensorflow-estimator==2.6.0
+uvicorn==0.15.0
