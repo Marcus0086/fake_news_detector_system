@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from Routes.routes import router as NewsRouter
+from server.Routes.routes import router as NewsRouter
 
 app = FastAPI()
 app.add_middleware(

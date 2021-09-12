@@ -4,5 +4,5 @@ COPY ./requirements.txt /app
 WORKDIR /app
 RUN pip install -r requirements.txt
 
-EXPOSE 8000
-CMD ["python", "main.py"]
+EXPOSE $PORT
+CMD ["gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "server.api:app"]

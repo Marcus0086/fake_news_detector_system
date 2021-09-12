@@ -1,12 +1,11 @@
-from fastapi import APIRouter, Body, Response, status
-from fastapi.encoders import jsonable_encoder
-from models.models import NewsSchema
+from fastapi import APIRouter, Response, status
+from server.models.models import NewsSchema
 import joblib
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 # load model and tokenizer
-model = load_model('models/components/fake_news_model.h5')
-tokenizer = joblib.load('models/components/tokenizer.joblib')
+model = load_model('server/models/components/fake_news_model.h5')
+tokenizer = joblib.load('server/models/components/tokenizer.joblib')
 router = APIRouter()
 
 
