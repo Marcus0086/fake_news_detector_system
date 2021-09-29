@@ -1,45 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cardRestaurant"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardNews"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    app:cardCornerRadius="6dp">
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp"
+    app:cardCornerRadius="8dp"
+    android:elevation="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@color/secondary_200">
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgNewsThumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerCrop"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@+id/txtHeading"
+            android:layout_marginBottom="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:elevation="10dp">
+
+            <TextView
+                android:id="@+id/txtPublishedDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/published_date"
+                android:textAlignment="viewEnd"
+                android:paddingVertical="2dp"
+                android:paddingHorizontal="10dp"
+                android:textSize="11sp"
+                tools:ignore="SmallSp"
+                android:textColor="@color/primary_200"/>
+
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/txtHeading"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/heading"
+            android:layout_below="@+id/imgNewsThumbnail"
+            android:textSize="17sp"
+            android:textStyle="bold"
             android:paddingHorizontal="10dp"
-            android:paddingVertical="5dp"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:maxLines="2"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/primary_200"/>
 
         <TextView
             android:id="@+id/txtArticle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtHeading"
             android:text="@string/article"
             android:paddingHorizontal="10dp"
-            android:textSize="16sp"/>
-
-        <ImageView
-            android:id="@+id/imgNewsThumbnail"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layout_alignParentEnd="true"
-            android:layout_margin="8dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_action_profile" />
+            android:textSize="14sp"
+            android:textColor="@color/primary_200"
+            android:fontFamily="@font/roboto_slab"
+            android:maxLines="4"
+            android:paddingBottom="10dp"/>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

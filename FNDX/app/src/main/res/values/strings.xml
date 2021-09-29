@@ -10,4 +10,18 @@
     <string name="profile">Profile</string>
     <string name="heading">Heading</string>
     <string name="article">Article</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="published_date">Published Date</string>
+    <string name="sports">Sports</string>
+    <string name="business">Business</string>
+    <string name="education">Education</string>
+    <string name="top_stories">Top Stories</string>
+    <string name="most_recent_stories">Most Recent Stories</string>
+    <string name="world">World</string>
+    <string name="tech">Tech</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="science">Science</string>
 </resources>

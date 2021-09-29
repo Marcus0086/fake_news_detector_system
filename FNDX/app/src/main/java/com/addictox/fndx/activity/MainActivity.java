@@ -7,6 +7,8 @@ import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private void init() {
         toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navigation);
+
     }
 
     private void setupToolbar() {
