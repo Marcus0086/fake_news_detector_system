@@ -40,10 +40,9 @@ import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
-    public RecyclerView recyclerNews;
     public NewsAdapter newsAdapter;
     private RelativeLayout rlLoading;
-    ArrayList<News> newsList = new ArrayList<News>();
+    public ArrayList<News> newsList = new ArrayList<News>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,7 +51,6 @@ public class HomeFragment extends Fragment {
 
         rlLoading = view.findViewById(R.id.rlLoading);
         rlLoading.setVisibility(View.VISIBLE);
-        recyclerNews = view.findViewById(R.id.recyclerNews);
 
         JSONObject jsonParam = new JSONObject();
         JSONArray jsonArray = new JSONArray();
@@ -84,8 +82,8 @@ public class HomeFragment extends Fragment {
             System.out.println("CHIPS:"+jsonArray.toString());
             try { jsonParam.put("personalised", jsonArray); }
             catch(Exception e){e.printStackTrace();}
-//            rlLoading.setVisibility(View.VISIBLE);
-//            setupRecycler(jsonParam);
+            rlLoading.setVisibility(View.VISIBLE);
+            getDataFromApi(jsonParam);
         };
 
         chipTopStories.setOnCheckedChangeListener(clickListener);
@@ -98,12 +96,21 @@ public class HomeFragment extends Fragment {
         chipEntertainment.setOnCheckedChangeListener(clickListener);
         chipScience.setOnCheckedChangeListener(clickListener);
 
-        setupRecycler(jsonParam);
+        setupRecycler(view);
+        getDataFromApi(jsonParam);
         return view;
     }
 
-    private void setupRecycler(JSONObject jsonParam) {
-        newsList.clear();
+    private void setupRecycler(View view) {
+        RecyclerView recyclerNews = view.findViewById(R.id.recyclerNews);
+        recyclerNews.setLayoutManager(new LinearLayoutManager(requireActivity()));
+        recyclerNews.setItemAnimator(new DefaultItemAnimator());
+        recyclerNews.setHasFixedSize(true);
+        newsAdapter = new NewsAdapter(newsList, requireActivity());
+        recyclerNews.setAdapter(newsAdapter);
+    }
+
+    private void getDataFromApi(JSONObject jsonParam) {
         RequestQueue queue = Volley.newRequestQueue(requireActivity());
 
         if (new ConnectionManager().isNetworkAvailable(requireActivity())) {
@@ -115,7 +122,7 @@ public class HomeFragment extends Fragment {
 //                    System.out.println("Response:"+response);
                     try {
                         if(response.getBoolean("success")){
-                            rlLoading.setVisibility(View.GONE);
+                            newsList.clear();
                             JSONArray keys = response.getJSONObject("data").names();
                             System.out.println("CHIPS:"+keys.toString());
                             for (int i = 0; i < Objects.requireNonNull(keys).length(); ++i){
@@ -133,11 +140,8 @@ public class HomeFragment extends Fragment {
                                     newsList.add(news);
                                 }
                             }
-                            newsAdapter = new NewsAdapter(newsList, requireActivity());
-                            recyclerNews.setLayoutManager(new LinearLayoutManager(requireActivity()));
-                            recyclerNews.setItemAnimator(new DefaultItemAnimator());
-                            recyclerNews.setAdapter(newsAdapter);
-                            recyclerNews.setHasFixedSize(true);
+                            rlLoading.setVisibility(View.GONE);
+                            newsAdapter.notifyDataSetChanged();
                         }
                     } catch(Exception e) {
                         e.printStackTrace();
