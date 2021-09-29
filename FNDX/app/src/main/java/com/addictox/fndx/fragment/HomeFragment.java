@@ -74,10 +74,9 @@ public class HomeFragment extends Fragment {
             if(isChecked){
                 jsonArray.put(chipName);
             } else {
-                jsonArray.remove(jsonArray.length()-1);
                 for(int i = 0; i<jsonArray.length();++i){
                     try {
-                        if(jsonArray.get(i) == chipName)
+                        if(jsonArray.get(i).toString().equals(chipName))
                             jsonArray.remove(i);
                     } catch (JSONException e) { e.printStackTrace(); }
                 }
@@ -86,6 +85,7 @@ public class HomeFragment extends Fragment {
             try { jsonParam.put("personalised", jsonArray); }
             catch(Exception e){e.printStackTrace();}
 //            rlLoading.setVisibility(View.VISIBLE);
+//            setupRecycler(jsonParam);
         };
 
         chipTopStories.setOnCheckedChangeListener(clickListener);
