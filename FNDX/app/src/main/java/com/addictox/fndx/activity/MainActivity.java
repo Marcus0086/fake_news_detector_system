@@ -81,12 +81,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 Objects.requireNonNull(getSupportActionBar()).setTitle("Fake News Detector");
                 break;
             }
-            case R.id.action_profile:{
-                ProfileFragment profileFragment = new ProfileFragment();
-                fragmentTransaction.replace(R.id.frame, profileFragment).commit();
-                Objects.requireNonNull(getSupportActionBar()).setTitle("AddictoX");
-                break;
-            }
+//            case R.id.action_profile:{
+//                ProfileFragment profileFragment = new ProfileFragment();
+//                fragmentTransaction.replace(R.id.frame, profileFragment).commit();
+//                Objects.requireNonNull(getSupportActionBar()).setTitle("AddictoX");
+//                break;
+//            }
         }
         return true;
     }
