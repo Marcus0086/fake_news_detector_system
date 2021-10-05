@@ -14,7 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:singleLine="true"
-        app:chipSpacingHorizontal="10dp">
+        app:chipSpacingHorizontal="10dp"
+        app:singleSelection="false">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipTopStories"
@@ -27,16 +28,16 @@
             app:checkedIconEnabled="false"
             android:checkable="true"/>
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chipMostRecentStories"
-            android:text="@string/most_recent_stories"
-            app:chipBackgroundColor="@drawable/chip_filter_background"
-            android:textColor="@drawable/chip_filter_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance"
-            app:checkedIconEnabled="false"
-            android:checkable="true"/>
+<!--        <com.google.android.material.chip.Chip-->
+<!--            android:id="@+id/chipMostRecentStories"-->
+<!--            android:text="@string/most_recent_stories"-->
+<!--            app:chipBackgroundColor="@drawable/chip_filter_background"-->
+<!--            android:textColor="@drawable/chip_filter_text"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textAppearance="@style/TextAppearance"-->
+<!--            app:checkedIconEnabled="false"-->
+<!--            android:checkable="true"/>-->
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipWorld"

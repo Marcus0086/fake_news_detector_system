@@ -44,6 +44,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
         News newsObject = news.get(p);
         holder.txtHeading.setText(newsObject.title);
         if (!newsObject.desc.equals("NULL")){
+            holder.txtArticle.setVisibility(View.VISIBLE);
             holder.txtArticle.setText(newsObject.desc);
         } else{
             holder.txtArticle.setVisibility(View.GONE);

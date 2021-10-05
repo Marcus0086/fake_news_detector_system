@@ -55,7 +55,7 @@ public class HomeFragment extends Fragment {
         JSONObject jsonParam = new JSONObject();
         JSONArray jsonArray = new JSONArray();
         Chip chipTopStories = view.findViewById(R.id.chipTopStories);
-        Chip chipMostRecentStories = view.findViewById(R.id.chipMostRecentStories);
+//        Chip chipMostRecentStories = view.findViewById(R.id.chipMostRecentStories);
         Chip chipWorld = view.findViewById(R.id.chipWorld);
         Chip chipSports = view.findViewById(R.id.chipSports);
         Chip chipTech = view.findViewById(R.id.chipTech);
@@ -87,7 +87,7 @@ public class HomeFragment extends Fragment {
         };
 
         chipTopStories.setOnCheckedChangeListener(clickListener);
-        chipMostRecentStories.setOnCheckedChangeListener(clickListener);
+//        chipMostRecentStories.setOnCheckedChangeListener(clickListener);
         chipWorld.setOnCheckedChangeListener(clickListener);
         chipSports.setOnCheckedChangeListener(clickListener);
         chipTech.setOnCheckedChangeListener(clickListener);
