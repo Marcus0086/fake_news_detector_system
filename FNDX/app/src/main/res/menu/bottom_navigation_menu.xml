@@ -6,7 +6,7 @@
             android:icon="@drawable/ic_action_check" />
         <item android:id="@+id/action_home"
             android:title="@string/home"
-            android:icon="@drawable/ic_action_home" />
+            android:icon="@drawable/ic_action_paper_scroll" />
 <!--        <item android:id="@+id/action_profile"-->
 <!--            android:title="@string/profile"-->
 <!--            android:icon="@drawable/ic_action_profile" />-->
