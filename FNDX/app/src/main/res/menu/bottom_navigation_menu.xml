@@ -3,10 +3,10 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/action_check"
             android:title="@string/check_news"
-            android:icon="@drawable/ic_action_check" />
+            android:icon="@drawable/ic_action_check_news" />
         <item android:id="@+id/action_home"
             android:title="@string/home"
-            android:icon="@drawable/ic_action_paper_scroll" />
+            android:icon="@drawable/ic_action_newspaper" />
 <!--        <item android:id="@+id/action_profile"-->
 <!--            android:title="@string/profile"-->
 <!--            android:icon="@drawable/ic_action_profile" />-->
