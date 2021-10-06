@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> implements Filterable{
+public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder>{
 
     private final ArrayList<News> news;
     private final Context context;
@@ -63,11 +63,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     @Override
     public int getItemCount() {
         return news.size();
-    }
-
-    @Override
-    public Filter getFilter() {
-        return null;
     }
 
     public static class NewsViewHolder extends RecyclerView.ViewHolder {

@@ -15,22 +15,24 @@
         android:layout_height="wrap_content"
         app:singleLine="true"
         app:chipSpacingHorizontal="10dp"
-        app:singleSelection="false">
+        app:singleSelection="true"
+        app:selectionRequired="true">
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chipTopStories"
-            android:text="@string/top_stories"
+            android:id="@+id/chipAll"
+            android:text="@string/all"
             app:chipBackgroundColor="@drawable/chip_filter_background"
             android:textColor="@drawable/chip_filter_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance"
             app:checkedIconEnabled="false"
-            android:checkable="true"/>
+            android:checked="true"
+            android:checkable="true" />
 
 <!--        <com.google.android.material.chip.Chip-->
-<!--            android:id="@+id/chipMostRecentStories"-->
-<!--            android:text="@string/most_recent_stories"-->
+<!--            android:id="@+id/chipTopStories"-->
+<!--            android:text="@string/top_stories"-->
 <!--            app:chipBackgroundColor="@drawable/chip_filter_background"-->
 <!--            android:textColor="@drawable/chip_filter_text"-->
 <!--            android:layout_width="wrap_content"-->

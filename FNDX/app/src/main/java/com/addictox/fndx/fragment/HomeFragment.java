@@ -54,8 +54,8 @@ public class HomeFragment extends Fragment {
 
         JSONObject jsonParam = new JSONObject();
         JSONArray jsonArray = new JSONArray();
-        Chip chipTopStories = view.findViewById(R.id.chipTopStories);
-//        Chip chipMostRecentStories = view.findViewById(R.id.chipMostRecentStories);
+        Chip chipAll = view.findViewById(R.id.chipAll);
+//        Chip chipTopStories = view.findViewById(R.id.chipTopStories);
         Chip chipWorld = view.findViewById(R.id.chipWorld);
         Chip chipSports = view.findViewById(R.id.chipSports);
         Chip chipTech = view.findViewById(R.id.chipTech);
@@ -64,30 +64,22 @@ public class HomeFragment extends Fragment {
         Chip chipEntertainment = view.findViewById(R.id.chipEntertainment);
         Chip chipScience = view.findViewById(R.id.chipScience);
 
-        try{ jsonParam.put("personalised", jsonArray); }
+        try{ jsonParam.put("pref", "all"); }
         catch(Exception e){e.printStackTrace();}
 
         CompoundButton.OnCheckedChangeListener clickListener = (chip, isChecked) -> {
-            String chipName = chip.getText().toString().toLowerCase().replace(" ","-");
+            String chipName = chip.getText().toString().toLowerCase();
             if(isChecked){
-                jsonArray.put(chipName);
-            } else {
-                for(int i = 0; i<jsonArray.length();++i){
-                    try {
-                        if(jsonArray.get(i).toString().equals(chipName))
-                            jsonArray.remove(i);
-                    } catch (JSONException e) { e.printStackTrace(); }
-                }
+                try{ jsonParam.put("pref", chipName); }
+                catch(Exception e){e.printStackTrace();}
             }
             System.out.println("CHIPS:"+jsonArray.toString());
-            try { jsonParam.put("personalised", jsonArray); }
-            catch(Exception e){e.printStackTrace();}
             rlLoading.setVisibility(View.VISIBLE);
             getDataFromApi(jsonParam);
         };
 
-        chipTopStories.setOnCheckedChangeListener(clickListener);
-//        chipMostRecentStories.setOnCheckedChangeListener(clickListener);
+        chipAll.setOnCheckedChangeListener(clickListener);
+//        chipTopStories.setOnCheckedChangeListener(clickListener);
         chipWorld.setOnCheckedChangeListener(clickListener);
         chipSports.setOnCheckedChangeListener(clickListener);
         chipTech.setOnCheckedChangeListener(clickListener);
