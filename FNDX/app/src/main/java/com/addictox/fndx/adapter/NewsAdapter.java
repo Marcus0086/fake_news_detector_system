@@ -11,6 +11,7 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.addictox.fndx.R;
+import com.addictox.fndx.activity.DetailActivity;
 import com.addictox.fndx.model.News;
 import com.squareup.picasso.Picasso;
 
@@ -20,14 +21,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder>{
+public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
 
     private final ArrayList<News> news;
     private final Context context;
+    private final RecyclerViewClickListener listener;
 
-    public NewsAdapter(ArrayList<News> news, Context context) {
+    public NewsAdapter(ArrayList<News> news, Context context, RecyclerViewClickListener listener) {
         this.news = news;
         this.context = context;
+        this.listener = listener;
     }
 
     @NonNull
@@ -55,8 +58,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
                 .into(holder.imgNewsThumbnail);
 
         holder.cardNews.setOnClickListener(view -> {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(newsObject.link));
-            context.startActivity(browserIntent);
+            listener.onRecyclerViewItemClick(holder.cardNews , newsObject.link);
         });
     }
 

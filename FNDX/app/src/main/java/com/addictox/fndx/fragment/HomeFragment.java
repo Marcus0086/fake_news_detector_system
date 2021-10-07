@@ -1,6 +1,7 @@
 package com.addictox.fndx.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
@@ -20,7 +21,9 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.addictox.fndx.R;
+import com.addictox.fndx.activity.DetailActivity;
 import com.addictox.fndx.adapter.NewsAdapter;
+import com.addictox.fndx.adapter.RecyclerViewClickListener;
 import com.addictox.fndx.model.News;
 import com.addictox.fndx.util.ConnectionManager;
 import com.android.volley.Request;
@@ -38,7 +41,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements RecyclerViewClickListener {
 
     public NewsAdapter newsAdapter;
     private RelativeLayout rlLoading;
@@ -98,8 +101,15 @@ public class HomeFragment extends Fragment {
         recyclerNews.setLayoutManager(new LinearLayoutManager(requireActivity()));
         recyclerNews.setItemAnimator(new DefaultItemAnimator());
         recyclerNews.setHasFixedSize(true);
-        newsAdapter = new NewsAdapter(newsList, requireActivity());
+        newsAdapter = new NewsAdapter(newsList, requireActivity(), this);
         recyclerNews.setAdapter(newsAdapter);
+    }
+
+    @Override
+    public void onRecyclerViewItemClick(View view, String link) {
+        Intent intent = new Intent(getActivity(), DetailActivity.class);
+        intent.putExtra("url", link);
+        startActivity(intent);
     }
 
     private void getDataFromApi(JSONObject jsonParam) {
