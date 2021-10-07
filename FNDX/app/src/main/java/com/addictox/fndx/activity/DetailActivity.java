@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
@@ -28,8 +30,13 @@ public class DetailActivity extends AppCompatActivity {
         if( url != null ){
             WebView webView = (WebView) findViewById(R.id.detail_activity);
             ProgressBar progress = (ProgressBar) findViewById(R.id.progress_bar);
+            WebSettings webSettings = webView.getSettings();
 
-            webView.getSettings().setJavaScriptEnabled(true);
+            webSettings.setJavaScriptEnabled(true);
+            webSettings.setDomStorageEnabled(true);
+
+            webView.setWebViewClient(new WebViewClient());
+            webView.setWebChromeClient(new WebChromeClient());
             webView.setWebViewClient(new WebViewClient() {
                 @Override
                 public void onPageStarted(WebView view, String url, Bitmap favicon) {
