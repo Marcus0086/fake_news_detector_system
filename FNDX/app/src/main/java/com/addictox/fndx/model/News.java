@@ -7,7 +7,7 @@ public class News {
     public String img;
     public String link;
 
-    public News(String title, String desc, String pub, String img, String link){
+    public News(String title, String desc, String pub, String img, String link) {
         this.title = title;
         this.desc = desc;
         this.pub = pub;

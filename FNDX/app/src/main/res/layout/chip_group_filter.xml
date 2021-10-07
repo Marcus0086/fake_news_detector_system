@@ -1,123 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<HorizontalScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/hsvFilter"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/hsvFilter"
-    android:scrollbars="none"
     android:background="@color/primary_500"
     android:paddingHorizontal="6dp"
-    android:paddingVertical="2dp">
+    android:paddingVertical="2dp"
+    android:scrollbars="none">
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/cgFilter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:singleLine="true"
         app:chipSpacingHorizontal="10dp"
-        app:singleSelection="true"
-        app:selectionRequired="true">
+        app:selectionRequired="true"
+        app:singleLine="true"
+        app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipAll"
-            android:text="@string/all"
-            app:chipBackgroundColor="@drawable/chip_filter_background"
-            android:textColor="@drawable/chip_filter_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance"
-            app:checkedIconEnabled="false"
+            android:checkable="true"
             android:checked="true"
-            android:checkable="true" />
+            android:text="@string/all"
+            android:textAppearance="@style/TextAppearance"
+            android:textColor="@drawable/chip_filter_text"
+            app:checkedIconEnabled="false"
+            app:chipBackgroundColor="@drawable/chip_filter_background" />
 
-<!--        <com.google.android.material.chip.Chip-->
-<!--            android:id="@+id/chipTopStories"-->
-<!--            android:text="@string/top_stories"-->
-<!--            app:chipBackgroundColor="@drawable/chip_filter_background"-->
-<!--            android:textColor="@drawable/chip_filter_text"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textAppearance="@style/TextAppearance"-->
-<!--            app:checkedIconEnabled="false"-->
-<!--            android:checkable="true"/>-->
+        <!--        <com.google.android.material.chip.Chip-->
+        <!--            android:id="@+id/chipTopStories"-->
+        <!--            android:text="@string/top_stories"-->
+        <!--            app:chipBackgroundColor="@drawable/chip_filter_background"-->
+        <!--            android:textColor="@drawable/chip_filter_text"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textAppearance="@style/TextAppearance"-->
+        <!--            app:checkedIconEnabled="false"-->
+        <!--            android:checkable="true"/>-->
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipWorld"
-            android:text="@string/world"
-            app:chipBackgroundColor="@drawable/chip_filter_background"
-            android:textColor="@drawable/chip_filter_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="@string/world"
             android:textAppearance="@style/TextAppearance"
+            android:textColor="@drawable/chip_filter_text"
             app:checkedIconEnabled="false"
-            android:checkable="true"/>
+            app:chipBackgroundColor="@drawable/chip_filter_background" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipSports"
-            android:text="@string/sports"
-            app:chipBackgroundColor="@drawable/chip_filter_background"
-            android:textColor="@drawable/chip_filter_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="@string/sports"
             android:textAppearance="@style/TextAppearance"
+            android:textColor="@drawable/chip_filter_text"
             app:checkedIconEnabled="false"
-            android:checkable="true"/>
+            app:chipBackgroundColor="@drawable/chip_filter_background" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipTech"
-            android:text="@string/tech"
-            app:chipBackgroundColor="@drawable/chip_filter_background"
-            android:textColor="@drawable/chip_filter_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="@string/tech"
             android:textAppearance="@style/TextAppearance"
+            android:textColor="@drawable/chip_filter_text"
             app:checkedIconEnabled="false"
-            android:checkable="true"/>
+            app:chipBackgroundColor="@drawable/chip_filter_background" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipBusiness"
-            android:text="@string/business"
-            app:chipBackgroundColor="@drawable/chip_filter_background"
-            android:textColor="@drawable/chip_filter_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="@string/business"
             android:textAppearance="@style/TextAppearance"
+            android:textColor="@drawable/chip_filter_text"
             app:checkedIconEnabled="false"
-            android:checkable="true"/>
+            app:chipBackgroundColor="@drawable/chip_filter_background" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipEducation"
-            android:text="@string/education"
-            app:chipBackgroundColor="@drawable/chip_filter_background"
-            android:textColor="@drawable/chip_filter_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="@string/education"
             android:textAppearance="@style/TextAppearance"
+            android:textColor="@drawable/chip_filter_text"
             app:checkedIconEnabled="false"
-            android:checkable="true"/>
+            app:chipBackgroundColor="@drawable/chip_filter_background" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipEntertainment"
-            android:text="@string/entertainment"
-            app:chipBackgroundColor="@drawable/chip_filter_background"
-            android:textColor="@drawable/chip_filter_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="@string/entertainment"
             android:textAppearance="@style/TextAppearance"
+            android:textColor="@drawable/chip_filter_text"
             app:checkedIconEnabled="false"
-            android:checkable="true"/>
+            app:chipBackgroundColor="@drawable/chip_filter_background" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipScience"
-            android:text="@string/science"
-            app:chipBackgroundColor="@drawable/chip_filter_background"
-            android:textColor="@drawable/chip_filter_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="@string/science"
             android:textAppearance="@style/TextAppearance"
+            android:textColor="@drawable/chip_filter_text"
             app:checkedIconEnabled="false"
-            android:checkable="true"/>
+            app:chipBackgroundColor="@drawable/chip_filter_background" />
 
     </com.google.android.material.chip.ChipGroup>
 

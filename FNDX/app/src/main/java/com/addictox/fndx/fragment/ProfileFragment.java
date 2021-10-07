@@ -2,13 +2,7 @@ package com.addictox.fndx.fragment;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,6 +10,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 
 import com.addictox.fndx.R;
 
@@ -49,15 +47,15 @@ public class ProfileFragment extends Fragment {
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.action_Edit:{
+        switch (item.getItemId()) {
+            case R.id.action_Edit: {
                 fName.setEnabled(true);
                 lName.setEnabled(true);
                 Email.setEnabled(true);
                 Phone.setEnabled(true);
                 break;
             }
-            case R.id.action_logout:{
+            case R.id.action_logout: {
                 AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
                 builder.setTitle("Confirmation")
                         .setMessage("Are you sure you want exit?")
@@ -66,7 +64,7 @@ public class ProfileFragment extends Fragment {
                         .create().show();
                 break;
             }
-            default:{
+            default: {
                 return super.onOptionsItemSelected(item);
             }
         }

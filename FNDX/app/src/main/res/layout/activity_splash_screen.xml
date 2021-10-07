@@ -11,19 +11,19 @@
         android:layout_height="200dp"
         android:layout_above="@+id/txtByAddictox"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/splash_screen_icon"
-        android:layout_marginBottom="300dp"/>
+        android:layout_marginBottom="300dp"
+        android:src="@drawable/splash_screen_icon" />
 
     <TextView
         android:id="@+id/txtByAddictox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:gravity="center"
+        android:layout_marginBottom="50dp"
         android:fontFamily="cursive"
+        android:gravity="center"
         android:text="@string/by_addictox"
         android:textColor="@color/primary_200"
-        android:textSize="35sp"
-        android:layout_marginBottom="50dp"/>
+        android:textSize="35sp" />
 
 </RelativeLayout>

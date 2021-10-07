@@ -1,7 +1,6 @@
 package com.addictox.fndx.activity;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +9,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,19 +17,20 @@ import com.addictox.fndx.R;
 
 public class DetailActivity extends AppCompatActivity {
 
+    private WebView webView;
+    private ProgressBar progress;
+
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        Intent intent = getIntent();
+        String url = getIntent().getStringExtra("url");
 
-        String url = intent.getStringExtra("url");
-
-        if( url != null ){
-            WebView webView = findViewById(R.id.detail_activity);
-            ProgressBar progress = findViewById(R.id.progress_bar);
+        if (url != null) {
+            webView = findViewById(R.id.wvDetailActivity);
+            progress = findViewById(R.id.progress_bar);
             WebSettings webSettings = webView.getSettings();
 
             webSettings.setJavaScriptEnabled(true);

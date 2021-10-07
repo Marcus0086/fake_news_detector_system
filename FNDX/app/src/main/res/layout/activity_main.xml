@@ -22,8 +22,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/primary_500"
-                app:titleTextColor="@color/white"
-                app:titleTextAppearance="@style/TitleTextAppearance"/>
+                app:titleTextAppearance="@style/TitleTextAppearance"
+                app:titleTextColor="@color/white" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -40,12 +40,12 @@
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        android:layout_gravity="end"
         android:layout_alignParentBottom="true"
+        android:layout_gravity="end"
         android:background="@color/primary_500"
+        app:itemIconSize="30dp"
         app:itemIconTint="@drawable/bnv_tab_item_foreground"
         app:itemTextColor="@drawable/bnv_tab_item_foreground"
-        app:itemIconSize="30dp"
         app:menu="@menu/bottom_navigation_menu" />
 
 </RelativeLayout>

@@ -8,8 +8,8 @@
     android:layout_marginHorizontal="8dp"
     android:layout_marginVertical="10dp"
     android:backgroundTint="@color/white"
-    app:cardCornerRadius="8dp"
-    android:elevation="10dp">
+    android:elevation="10dp"
+    app:cardCornerRadius="8dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,29 +21,29 @@
             android:layout_height="220dp"
             android:scaleType="centerCrop"
             android:transitionName="img"
-            tools:ignore="UnusedAttribute"/>
+            tools:ignore="UnusedAttribute" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="8dp"
-            android:layout_alignParentEnd="true"
             android:layout_above="@+id/txtHeading"
-            android:layout_marginBottom="10dp"
+            android:layout_alignParentEnd="true"
             android:layout_marginHorizontal="10dp"
-            android:elevation="10dp">
+            android:layout_marginBottom="10dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="8dp">
 
             <TextView
                 android:id="@+id/txtPublishedDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="2dp"
                 android:text="@string/published_date"
                 android:textAlignment="viewEnd"
-                android:paddingVertical="2dp"
-                android:paddingHorizontal="10dp"
+                android:textColor="@color/primary_200"
                 android:textSize="11sp"
-                tools:ignore="SmallSp"
-                android:textColor="@color/primary_200"/>
+                tools:ignore="SmallSp" />
 
         </androidx.cardview.widget.CardView>
 
@@ -51,28 +51,28 @@
             android:id="@+id/txtHeading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/heading"
             android:layout_below="@+id/imgNewsThumbnail"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            android:paddingHorizontal="10dp"
-            android:maxLines="2"
             android:fontFamily="@font/poppins_medium"
-            android:textColor="@color/primary_200"/>
+            android:maxLines="2"
+            android:paddingHorizontal="10dp"
+            android:text="@string/heading"
+            android:textColor="@color/primary_200"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtArticle"
-            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtHeading"
-            android:text="@string/article"
-            android:paddingHorizontal="10dp"
-            android:textSize="14sp"
-            android:textColor="@color/primary_200"
             android:fontFamily="@font/roboto_slab"
             android:maxLines="4"
-            android:paddingBottom="10dp"/>
+            android:paddingHorizontal="10dp"
+            android:paddingBottom="10dp"
+            android:text="@string/article"
+            android:textColor="@color/primary_200"
+            android:textSize="14sp"
+            android:visibility="gone" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

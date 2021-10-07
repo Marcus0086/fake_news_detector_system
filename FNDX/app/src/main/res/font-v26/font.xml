@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <font-family xmlns:android="http://schemas.android.com/apk/res/android">
     <font
+        android:font="@font/roboto_mono"
         android:fontStyle="normal"
-        android:fontWeight="400"
-        android:font="@font/roboto_mono" />
+        android:fontWeight="400" />
 
     <font
+        android:font="@font/roboto_slab"
         android:fontStyle="normal"
-        android:fontWeight="400"
-        android:font="@font/combo" />
+        android:fontWeight="400" />
 
     <font
+        android:font="@font/poppins_medium"
         android:fontStyle="normal"
-        android:fontWeight="400"
-        android:font="@font/roboto_slab" />
-
-    <font
-        android:fontStyle="normal"
-        android:fontWeight="400"
-        android:font="@font/poppins_medium" />
+        android:fontWeight="400" />
 </font-family>

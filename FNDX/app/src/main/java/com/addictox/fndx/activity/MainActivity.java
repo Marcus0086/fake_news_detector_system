@@ -1,21 +1,18 @@
 package com.addictox.fndx.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.addictox.fndx.R;
 import com.addictox.fndx.fragment.CheckNewsFragment;
 import com.addictox.fndx.fragment.HomeFragment;
-import com.addictox.fndx.fragment.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Objects;
@@ -39,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private void init() {
         toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navigation);
-
     }
 
     private void setupToolbar() {
@@ -68,14 +64,14 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
-        switch (item.getItemId()){
-            case R.id.action_home:{
+        switch (item.getItemId()) {
+            case R.id.action_home: {
                 HomeFragment homeFragment = new HomeFragment();
                 fragmentTransaction.replace(R.id.frame, homeFragment).commit();
                 Objects.requireNonNull(getSupportActionBar()).setTitle("News");
                 break;
             }
-            case R.id.action_check:{
+            case R.id.action_check: {
                 CheckNewsFragment checkNewsFragment = new CheckNewsFragment();
                 fragmentTransaction.replace(R.id.frame, checkNewsFragment).commit();
                 Objects.requireNonNull(getSupportActionBar()).setTitle("Fake News Detector");

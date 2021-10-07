@@ -1,8 +1,13 @@
 package com.addictox.fndx.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
@@ -11,19 +16,8 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
-
 import com.addictox.fndx.R;
-import com.addictox.fndx.activity.DetailActivity;
 import com.addictox.fndx.adapter.NewsAdapter;
-import com.addictox.fndx.adapter.RecyclerViewClickListener;
 import com.addictox.fndx.model.News;
 import com.addictox.fndx.util.ConnectionManager;
 import com.android.volley.Request;
@@ -31,21 +25,18 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.chip.Chip;
-import com.google.android.material.chip.ChipGroup;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
-public class HomeFragment extends Fragment implements RecyclerViewClickListener {
+public class HomeFragment extends Fragment {
 
     public NewsAdapter newsAdapter;
-    private RelativeLayout rlLoading;
     public ArrayList<News> newsList = new ArrayList<News>();
+    private RelativeLayout rlLoading;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,7 +47,6 @@ public class HomeFragment extends Fragment implements RecyclerViewClickListener 
         rlLoading.setVisibility(View.VISIBLE);
 
         JSONObject jsonParam = new JSONObject();
-        JSONArray jsonArray = new JSONArray();
         Chip chipAll = view.findViewById(R.id.chipAll);
 //        Chip chipTopStories = view.findViewById(R.id.chipTopStories);
         Chip chipWorld = view.findViewById(R.id.chipWorld);
@@ -67,16 +57,21 @@ public class HomeFragment extends Fragment implements RecyclerViewClickListener 
         Chip chipEntertainment = view.findViewById(R.id.chipEntertainment);
         Chip chipScience = view.findViewById(R.id.chipScience);
 
-        try{ jsonParam.put("pref", "all"); }
-        catch(Exception e){e.printStackTrace();}
+        try {
+            jsonParam.put("pref", "all");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         CompoundButton.OnCheckedChangeListener clickListener = (chip, isChecked) -> {
             String chipName = chip.getText().toString().toLowerCase();
-            if(isChecked){
-                try{ jsonParam.put("pref", chipName); }
-                catch(Exception e){e.printStackTrace();}
+            if (isChecked) {
+                try {
+                    jsonParam.put("pref", chipName);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            System.out.println("CHIPS:"+jsonArray.toString());
             rlLoading.setVisibility(View.VISIBLE);
             getDataFromApi(jsonParam);
         };
@@ -101,15 +96,8 @@ public class HomeFragment extends Fragment implements RecyclerViewClickListener 
         recyclerNews.setLayoutManager(new LinearLayoutManager(requireActivity()));
         recyclerNews.setItemAnimator(new DefaultItemAnimator());
         recyclerNews.setHasFixedSize(true);
-        newsAdapter = new NewsAdapter(newsList, requireActivity(), this);
+        newsAdapter = new NewsAdapter(newsList, requireActivity());
         recyclerNews.setAdapter(newsAdapter);
-    }
-
-    @Override
-    public void onRecyclerViewItemClick(View view, String link) {
-        Intent intent = new Intent(getActivity(), DetailActivity.class);
-        intent.putExtra("url", link);
-        startActivity(intent);
     }
 
     private void getDataFromApi(JSONObject jsonParam) {
@@ -117,42 +105,40 @@ public class HomeFragment extends Fragment implements RecyclerViewClickListener 
 
         if (new ConnectionManager().isNetworkAvailable(requireActivity())) {
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                Request.Method.POST,
-                "https://519eae26.eu-gb.apigw.appdomain.cloud/news-api/news",
-                jsonParam,
-                response -> {
-//                    System.out.println("Response:"+response);
-                    try {
-                        if(response.getBoolean("success")){
-                            newsList.clear();
-                            JSONArray keys = response.getJSONObject("data").names();
-                            System.out.println("CHIPS:"+keys.toString());
-                            for (int i = 0; i < Objects.requireNonNull(keys).length(); ++i){
-                                JSONArray newsTypeArray = response.getJSONObject("data").
-                                        getJSONArray(keys.getString(i));
-                                for(int j=0; j<newsTypeArray.length();++j){
-                                    JSONObject newsObject = newsTypeArray.getJSONObject(j);
-                                    News news = new News(
-                                            newsObject.getString("title"),
-                                            newsObject.getString("desc"),
-                                            newsObject.getString("published"),
-                                            newsObject.getString("photo"),
-                                            newsObject.getString("link")
-                                    );
-                                    newsList.add(news);
+                    Request.Method.POST,
+                    "https://519eae26.eu-gb.apigw.appdomain.cloud/news-api/news",
+                    jsonParam,
+                    response -> {
+                        try {
+                            if (response.getBoolean("success")) {
+                                newsList.clear();
+                                JSONArray keys = response.getJSONObject("data").names();
+                                for (int i = 0; i < Objects.requireNonNull(keys).length(); ++i) {
+                                    JSONArray newsTypeArray = response.getJSONObject("data").
+                                            getJSONArray(keys.getString(i));
+                                    for (int j = 0; j < newsTypeArray.length(); ++j) {
+                                        JSONObject newsObject = newsTypeArray.getJSONObject(j);
+                                        News news = new News(
+                                                newsObject.getString("title"),
+                                                newsObject.getString("desc"),
+                                                newsObject.getString("published"),
+                                                newsObject.getString("photo"),
+                                                newsObject.getString("link")
+                                        );
+                                        newsList.add(news);
+                                    }
                                 }
+                                rlLoading.setVisibility(View.GONE);
+                                newsAdapter.notifyDataSetChanged();
                             }
-                            rlLoading.setVisibility(View.GONE);
-                            newsAdapter.notifyDataSetChanged();
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
-                    } catch(Exception e) {
-                        e.printStackTrace();
-                    }
-                },
-                error -> {
-                    System.out.println("ERRROR: "+error.getMessage());
-                    Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
-                }) {
+                    },
+                    error -> {
+                        System.out.println("ERRROR: " + error.getMessage());
+                        Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
+                    }) {
             };
 
             queue.add(jsonObjectRequest);
