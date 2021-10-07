@@ -28,8 +28,8 @@ public class DetailActivity extends AppCompatActivity {
         String url = intent.getStringExtra("url");
 
         if( url != null ){
-            WebView webView = (WebView) findViewById(R.id.detail_activity);
-            ProgressBar progress = (ProgressBar) findViewById(R.id.progress_bar);
+            WebView webView = findViewById(R.id.detail_activity);
+            ProgressBar progress = findViewById(R.id.progress_bar);
             WebSettings webSettings = webView.getSettings();
 
             webSettings.setJavaScriptEnabled(true);

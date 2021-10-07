@@ -21,8 +21,8 @@
     </style>
 
     <style name="TitleTextAppearance" parent="TextAppearance.MaterialComponents.Chip">
-        <item name="fontFamily">@font/combo</item>
-        <item name="android:fontFamily">@font/combo</item>
+        <item name="fontFamily">@font/roboto_mono</item>
+        <item name="android:fontFamily">@font/roboto_mono</item>
         <item name="android:textSize">28sp</item>
         <item name="android:textStyle">bold</item>
     </style>
