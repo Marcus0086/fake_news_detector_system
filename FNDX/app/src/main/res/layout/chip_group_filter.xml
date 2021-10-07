@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/hsvFilter"
     android:scrollbars="none"
+    android:background="@color/primary_500"
     android:paddingHorizontal="6dp"
     android:paddingVertical="2dp">
 
