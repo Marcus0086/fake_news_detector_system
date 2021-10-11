@@ -20,7 +20,8 @@
             android:layout_margin="10dp"
             android:layout_marginTop="30dp"
             android:theme="@style/ThemeOverlay.AppCompat"
-            app:cardCornerRadius="10dp">
+            app:cardCornerRadius="10dp"
+            android:elevation="10dp">
 
             <EditText
                 android:id="@+id/etEnterNews"
@@ -44,6 +45,17 @@
             android:layout_centerInParent="true"
             android:layout_marginVertical="20dp">
 
+            <TextView
+                android:id="@+id/txtRealFake"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
             <ImageView
                 android:id="@+id/imgFake"
                 android:layout_width="160dp"
@@ -52,7 +64,9 @@
                 android:layout_margin="10dp"
                 android:src="@drawable/fake"
                 android:visibility="invisible"
-                app:tint="#EF190A" />
+                android:layout_below="@+id/txtRealFake"
+                app:tint="#EF190A"
+                android:layout_centerHorizontal="true"/>
 
             <ImageView
                 android:id="@+id/imgReal"
@@ -62,31 +76,9 @@
                 android:layout_margin="10dp"
                 android:src="@drawable/real"
                 android:visibility="invisible"
-                app:tint="#149424" />
-
-            <TextView
-                android:id="@+id/txtRealFake"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/imgFake"
-                android:gravity="center_vertical"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/txtNewsResult"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
                 android:layout_below="@+id/txtRealFake"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_toEndOf="@+id/imgFake"
-                android:gravity="center_vertical"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                app:tint="#149424" />
 
         </RelativeLayout>
 
@@ -110,6 +102,22 @@
                 android:textStyle="bold" />
 
         </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlLoading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="55dp"
+        android:background="@color/white"
+        android:visibility="invisible">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
 
     </RelativeLayout>
 

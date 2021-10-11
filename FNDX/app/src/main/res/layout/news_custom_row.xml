@@ -67,6 +67,7 @@
             android:layout_below="@+id/txtHeading"
             android:fontFamily="@font/roboto_slab"
             android:maxLines="4"
+            android:ellipsize="end"
             android:paddingHorizontal="10dp"
             android:paddingBottom="10dp"
             android:text="@string/article"

@@ -74,15 +74,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.action_check: {
                 CheckNewsFragment checkNewsFragment = new CheckNewsFragment();
                 fragmentTransaction.replace(R.id.frame, checkNewsFragment).commit();
-                Objects.requireNonNull(getSupportActionBar()).setTitle("Fake News Detector");
+                Objects.requireNonNull(getSupportActionBar()).setTitle("Check Authenticity");
                 break;
             }
-//            case R.id.action_profile:{
-//                ProfileFragment profileFragment = new ProfileFragment();
-//                fragmentTransaction.replace(R.id.frame, profileFragment).commit();
-//                Objects.requireNonNull(getSupportActionBar()).setTitle("AddictoX");
-//                break;
-//            }
         }
         return true;
     }

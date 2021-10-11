@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_screen_background"
+
     tools:context=".activity.SplashScreenActivity">
 
     <ImageView
@@ -18,12 +18,22 @@
         android:id="@+id/txtByAddictox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/txtVer"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:text="@string/by_addictox"
+        android:textColor="#4A4A4A"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/txtVer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="50dp"
-        android:fontFamily="cursive"
         android:gravity="center"
-        android:text="@string/by_addictox"
-        android:textColor="@color/primary_200"
-        android:textSize="35sp" />
+        android:text="v1.0.0"
+        android:textColor="#4A4A4A"
+        android:textSize="14sp" />
 
 </RelativeLayout>
